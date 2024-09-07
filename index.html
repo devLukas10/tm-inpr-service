@@ -4,83 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TM service -send</title>
-    <style>
-        body{background-color: #ffffff;}
-    </style>
+    <title>TM E-mail Formulario</title>
+    <link rel="stylesheet" href="./css/custon.css">
 </head>
 <body>
-
-    <section style="width:100%; max-width: 500px;display:flex;align-items:center;justify-content:center;flex-direction:column;">
-        <div style="width: 95%;padding:10px; background-color:#5e5e5e13;border-radius:10px;">
-            <img src="./images/muanaexchanhe-log-black-1.png" style="width:50px;border-radius:100%;" alt="logo">
-            <h1 style="font-family:Arial, Helvetica, sans-serif;max-width:90%;font-size:21pt;">O seu dinheiro está a caminho.</h1>
-            <p style="font-size: 10pt;font-family:Arial, Helvetica, sans-serif;font-weight:600;">
-                Recebemos o seu pedido de compra de USDT para a sua conta {{account}}:
-            </p>
-            <div style="font-size: 10pt;font-family:Arial, Helvetica, sans-serif;margin-bottom: 10px;
-                color:#5f5f5f;display:flex;align-items:center;justify-content:space-between; width: 100%;;">
-                <small style="max-width: 40%;">Montante de compra solicitado</small>
-                <small style="color:#000;">{{amount}} USDT</small>
-            </div>
-            <div style="font-size: 10pt;font-family:Arial, Helvetica, sans-serif;margin-bottom: 10px;
-                color:#5f5f5f;display:flex;align-items:center;justify-content:space-between; width: 100%;;">
-                <small style="max-width: 40%;">Você pagou</small>
-                <small style="color:#000;">{{amount_paid}} AOA</small>
-            </div>
-            <div style="font-size: 10pt;font-family:Arial, Helvetica, sans-serif;margin-bottom: 10px;
-                color:#5f5f5f;display:flex;align-items:center;justify-content:space-between; width: 100%;;">
-                <small style="max-width: 40%;">Montante a receber</small>
-                <small style="color:#000;">{{amount_reciveid}} USDT</small>
-            </div>
-            <div style="font-size: 10pt;font-family:Arial, Helvetica, sans-serif;margin-bottom: 10px;
-                color:#5f5f5f;display:flex;align-items:center;justify-content:space-between; width: 100%;;">
-                <small style="max-width: 40%;">ID de transação</small>
-                <small style="color:#000;">{{trans_id}}</small>
-            </div>
-            <div style="font-size: 10pt;font-family:Arial, Helvetica, sans-serif;margin-bottom: 10px;
-                color:#5f5f5f;display:flex;align-items:center;justify-content:space-between; width: 100%;;">
-                <small style="max-width: 40%;">Date de transação</small>
-                <small style="color:#000;">{{date}}</small>
-            </div>
-
-            <br>
-            <p style="font-size: 10pt;font-family:Arial, Helvetica, sans-serif;font-weight:500;max-width: 85%;">
-                Pode demoarar 1 à 5 min úteis para que o USDT apareça na sua conta,
-                dependendo da forma de envio, caso demorar mais tempo entra em contato.
-            </p>
-
-            <div style="width:100%;border:1px solid gray; border-style:dotted;"></div>
-            <p style="font-size: 10pt;font-family:Arial, Helvetica, sans-serif;font-weight:600;">Ajudas e contatos</p>
-            <a href="tel:+24494734417" style="text-decoration:none;font-size:8pt;font-weight:bold;font-family:Arial, Helvetica, sans-serif;"
-            >Phone: +244 947-344-47</a> <br>
-            <a href="emailto:muanaexchangeoficial@gmail.com" style="text-decoration:none;font-size:8pt;font-weight:bold;font-family:Arial, Helvetica, sans-serif;"
-            >Email:   muanaexchangeoficial@gmail.com</a>
-            <div style="font-size: 11pt;font-family:Arial, Helvetica, sans-serif;margin-top: 20px;
-            color:#5f5f5f;display:flex;align-items:center;justify-content:space-evenly; width: 100%;">
-                <a href="" style="text-decoration:none;font-size:8pt;font-weight:bold;font-family:Arial, Helvetica, sans-serif;color:#000;">
-                    <img src="./images/facebbok.webp" style="width:30px;border-radius:100%;" alt="facebook">
-                </a>
-                <a href="" style="text-decoration:none;font-size:8pt;font-weight:bold;font-family:Arial, Helvetica, sans-serif;color:#000;">
-                    <img src="./images/WhatsApp_icon.png" style="width:30px;border-radius:100%;" alt="facebook">
-                </a>
-                <a href="" style="text-decoration:none;font-size:8pt;font-weight:bold;font-family:Arial, Helvetica, sans-serif;color:#000;">
-                    <img src="./images/instagram.webp" style="width:30px;border-radius:100%;" alt="facebook">
-                </a>
-                <a href="" style="text-decoration:none;font-size:8pt;font-weight:bold;font-family:Arial, Helvetica, sans-serif;color:#000;">
-                    <img src="./images/x.jpg" style="width:30px;border-radius:100%;" alt="facebook">
-                </a>
-            </div>
-
-            <br>
-            <p style="font-size: 10pt;font-family:Arial, Helvetica, sans-serif;font-weight:500;color:#252525;max-width: 85%;">
-                O muanaexchange tem o compromisso de prevenir e-mails fraudulentos. Os e-mails enviados pelo
-                muanaexchange não irão sempre tratá-lo(a) pelo seu nome e apelido. <br><br>
-                Não responda a este e-mail. Para entrar em contato conosco clica em 
-                <a href="tel:+24494734417">Apoio e contato</a>. <br><br>
-                Muanaexchange (Angola-Luanda) Nif: 58****, Luanda-Calemba 2
-            </p>
+    <div class="sucess-alert" id="sucess">
+        <span>O e-mail foi enviado com sucesso.</span>
+    </div>
+    <div class="err-alert" id="err">
+        <span>Erro ao enviar o e-mail...</span>
+    </div>
+    <form action="#" class="form-emails" id="forms-email">
+        <h1>Formulário de compra</h1>
+        <div class="card-content">
+            <span>Nome do cliente</span>
+            <input type="text" name="user_name" id="user_name" placeholder="John Thomas" required>
         </div>
-    </section>
+        <div class="card-content">
+            <span>E-mail do cliente</span>
+            <input type="email" id="user_email" placeholder="jhonthomas@gmail.com" required>
+        </div>        
+        <div class="card-content">
+            <span>Carteira</span>
+            <input type="text" id="user_wallet" placeholder="Binance, Bybit etc..." required>
+        </div>
+        <div class="card-content">
+            <span>Endereço</span>
+            <input type="text" id="user_address" placeholder="E-mail,id, trc20 etc.." required>
+        </div>
+        <br>
+        <div class="card-content">
+            <span>Montante solicitado</span>
+            <input type="number" id="amount_send" placeholder="0.00" required>
+        </div>
+        <div class="card-content">
+            <span>Câmbio</span>
+            <input type="number"  id="amount_rates" placeholder="0.00" required>
+        </div>
+        <div class="card-content">
+            <span>Montante a receber</span>
+            <input type="text" id="amount_receive" placeholder="0.00USDT" readonly>
+        </div>
+        <div class="card-content">
+            <span>Montante a pagar</span>
+            <input type="text" id="amount_paid" placeholder="0.00AOA" readonly>
+        </div>
+        <button id="btn" disabled>Enviar e-mail</button>
+    </form>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+    
 </body>
 </html>
